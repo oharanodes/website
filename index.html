@@ -20,15 +20,19 @@
             <!-- <li class="nav-item"><a href="">Networks</a></li> -->
             <li class="nav-item"><a href="https://github.com/oharanodes">GitHub</a></li>
         </ul>
-        
     </header>
-    
     <main class="main" id="main">
         <section class="head-text">
             <p>Embark on a new era of blockchain excellence with OHara Nodes – your trusted gateway to the Solana ecosystem and beyond. Our cutting-edge validator services are meticulously engineered to enhance network stability, maximize uptime, and secure peak performance.</p>
         </section>
         <section class="main-content">
-            <div class="text-container left">
+            <div class="text-container">
+                <div class="icon-circle"><img src="img/exclamation.png" alt=""></div>
+                <h2>Stay Tuned!</h2>
+                <p>The landscape of decentralized finance is ever-evolving, and OHara Nodes is at the forefront, pioneering solutions that empower users and strengthen the network. Our services are tailored to the needs of both novice stakers and seasoned investors.
+                </p>
+            </div>
+            <div class="text-container">
                 <div class="icon-circle"><img src="img/why.png" alt=""></div>
                 <h2>Why OHara Nodes?</h2>
                 <ul>
@@ -41,38 +45,39 @@
                 </ul>
             </div>
             <div class="text-container">
-                <div class="icon-circle"><img src="img/exclamation.png" alt=""></div>
-                <h2>Stay Tuned!</h2>
-                <p>The landscape of decentralized finance is ever-evolving, and OHara Nodes is at the forefront, pioneering solutions that empower users and strengthen the network. Our services are tailored to the needs of both novice stakers and seasoned investors.
-                </p>
-            </div>
-            <div class="text-container">
                 <div class="icon-circle"><img src="img/welcome.png" alt=""></div>
                 <h2>Join Us on This Journey</h2>
                 <p>Whether you are looking to stake your Solana or explore other blockchain opportunities, OHara Nodes is gearing up to be your partner in growth. Get ready to harness the power of blockchain with unmatched ease and expertise.
                 </p>
             </div>
-            <div class="text-container">
-                <div class="icon-circle"><img src="img/connect.png" alt=""></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
                 <h2>Connect With Us</h2>
                 <p>Sign up for our newsletter and be the first to know when we go live. Exciting updates, exclusive insights, and the future of staking await.
                 </p>
-                <form class="email-container">
-                    <label for="email">Email:</label>
-                    <input class="email-input" type="text" id="email" name="email" placeholder="Enter your email">
-                    <button class="email-submit" type="submit">Submit</button>
-                </form>
-                
             </div>
-        </section>
-        
-    </main>
-    <footer class="footer">
-        <div class=" bottom">
-            
+            <div class="login-box">
+                <h2>Join with your e-mail</h2>
+                <form action="/submit" method="post">
+                    <div class="user-box">
+                      <input type="text" id="email" name="email" required>
+                      <label>Email</label>
+                    </div>
+                    <a id="submit" href="#">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      Join
+                    </a>
+                  </form>
+                <script src="scripts/submitBehavior.js" defer></script>
+              </div>
         </div>
     </footer>
-    <!-- <div class="rotated-block"></div> -->
 </div>
 </body>
 </html>
