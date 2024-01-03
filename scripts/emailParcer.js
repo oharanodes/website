@@ -1,5 +1,5 @@
-const nodemailer = require('nodemailer');
 const express = require('express');
+const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -12,37 +12,37 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-
-app.post('/submit', async (req, res) => {
+app.post('/submit', (req, res) => {
   const email = req.body.email;
 
   if (validateEmail(email)) {
     const transporter = nodemailer.createTransport({
-      host: 'your-mail-provider-smtp-host', // Smtp host
-      port: 587, // Smtp port
-      secure: false, // true if secure connection required by your provider
+      host: 'your-mail-provider-smtp-host', // Your smtp
+      port: 587, // Your smtp
+      secure: false, // Set to true if secure connection required
       auth: {
-        user: 'your-email@aaa.com', // YourMail
-        pass: 'your-email-pass' // YourmailPassword
+        user: 'your-mail@aaa.com', // Your mail
+        pass: 'your-mail-pass' // Your mail pass
       }
     });
 
-    // Email options
     const mailOptions = {
-      from: 'your-email@aaa.com', // YourMail
-      to: 'where-send-to@aaa.com',
+      from: 'your-mail@aaa.com', // Your mail
+      to: 'receive@aaa.com', // Receiving email
       subject: 'New Email Submission',
       text: `Email: ${email}`
     };
 
-    try {
-      const info = await transporter.sendMail(mailOptions);
-      console.log('Email sent: ' + info.response);
-      res.send('Email sent successfully!');
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Internal Server Error');
-    }
+    // Send the email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.send('Email sent successfully!');
+      }
+    });
   } else {
     res.status(400).send('Invalid email address');
   }
@@ -52,8 +52,3 @@ function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
-
-
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
